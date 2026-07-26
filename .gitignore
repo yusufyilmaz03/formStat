@@ -1,0 +1,18 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Yerel veri ve gizli dosyalar
+data/*.db
+data/imports/
+data/client_secret.json
+data/google_token.json
+backend/.env
+
+# OS
+.DS_Store
