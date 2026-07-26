@@ -54,6 +54,28 @@ API dokümantasyonu: **http://localhost:8000/docs**
 
 ---
 
+## Demo olarak yayınlama (tek link)
+
+Uygulama, **tek bir Docker konteyneri** olarak paketlenir: React arayüzü derlenir ve FastAPI hem API'yi hem arayüzü aynı adresten sunar. Konteyner açılışta **demo verisiyle dolu** gelir (`SEED_DEMO=1`). Veriler kalıcı değildir (yeniden dağıtımda sıfırlanır) — demo için idealdir.
+
+> Not: Vercel'in serverless yapısı bu backend'i (ağır istatistik kütüphaneleri + kalıcı DB ihtiyacı) çalıştıramaz. Aşağıdaki Docker yöntemi, sürekli çalışan servis destekleyen platformlarda çalışır.
+
+**Render (önerilen, ücretsiz):**
+1. [render.com](https://render.com) → **New → Blueprint** → bu GitHub reposunu seç (`render.yaml` otomatik algılanır), veya **New → Web Service → Docker**.
+2. Deploy'u başlat; birkaç dakikada `https://formstat-demo.onrender.com` benzeri bir adres verir.
+3. Bu linki paylaş. (Ücretsiz katman boşta uykuya dalar; ilk açılış ~1 dk sürebilir.)
+
+**Railway / Fly.io:** Repoyu bağla; `Dockerfile` otomatik algılanır. Railway boşta uyumaz (küçük ücret), Fly'ın ücretsiz kotası vardır.
+
+**Yerel Docker denemesi:**
+```bash
+docker build -t formstat .
+docker run -p 8000:8000 formstat
+# http://localhost:8000
+```
+
+---
+
 ## Kullanım akışı
 
 1. **Form oluştur** — "Yeni Form" → soruları ekle → Kaydet.

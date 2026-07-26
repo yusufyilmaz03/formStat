@@ -15,6 +15,8 @@ class Settings(BaseSettings):
 
     database_url: str = f"sqlite:///{DATA_DIR / 'formstat.db'}"
     frontend_origin: str = "http://localhost:5173"
+    # Prod'da derlenmiş React arayüzünün yolu (boşsa ../frontend/dist denenir)
+    frontend_dist: str = ""
 
     # Google OAuth (Faz 6)
     google_client_secret_file: str = str(DATA_DIR / "client_secret.json")

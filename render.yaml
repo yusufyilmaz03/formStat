@@ -1,0 +1,11 @@
+# Render Blueprint — GitHub reposunu bağlayıp tek tıkla demo yayınlamak için.
+# render.com → New → Blueprint → bu repoyu seç.
+services:
+  - type: web
+    name: formstat-demo
+    runtime: docker
+    plan: free            # ücretsiz katman (boşta uykuya dalar, ilk açılış yavaş olabilir)
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SEED_DEMO
+        value: "1"        # her taze konteyner örnek veriyle açılır
